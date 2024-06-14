@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  transition: 1s all;
+  margin: 0 auto;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  height: 630px;
+  background: #fff;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.imgBox {
+  width: 50%;
+  position: relative;
+  background-color: #212121;
+  transition: 1s all;
+}
+.imgBox::before {
+  content: "Nike";
+  position: absolute;
+  color: #000;
+  opacity: 0.2;
+  top: 0;
+  font-size: 8rem;
+  font-weight: 900;
+  left: 2rem;
+  transition: 1s all;
+  animation: moveText;
+  animation-duration: 0.5s;
+}
+.imgBox img{
+  position: relative;
+  z-index: 10;
+  top: 26%;
+  left: -8rem;
+  width: 650px;
+  transform: rotate(-15deg);
+  transition: 0.7s all;
+  animation: moveImage;
+  animation-duration: 0.5s;
+}
+
+.imgBox img:hover{
+    scale: 1.1;
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(50vw);
+  }
+}
+
+@keyframes moveImage {
+  from {
+    transform: translateY(100vh);
+  }
+}
+
+.right {
+  background: #fff;
+  position: relative;
+  padding: 2rem;
+}
+
+.right .right-container .right-heading {
+  text-align: center;
+  color: #212121;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.right .right-container .small-text {
+  text-align: center;
+  color: #212121;
+  opacity: 0.7;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.right .right-container .para {
+  padding: 2rem 3rem;
+  letter-spacing: 1px;
+  line-height: 1.4rem;
+  opacity: 0.7;
+}
+
+.rates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rates span {
+  color: #212121;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+
+.rates .btn {
+  background-color: #000;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.7);
+  transition: 1s hover ease-out;
+}
+
+.rates .btn:hover {
+  scale: 1.1;
+}
+
+.color-plate {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.product-colors {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.color-plate .black {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.product-colors .active::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 2px solid black;
+  position: absolute;
+  border-radius: 50%;
+  bottom: -4px;
+  left: -4px;
+}
+
+.color-plate .red {
+  width: 20px;
+  height: 20px;
+  background-color: crimson;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-plate .orange {
+  width: 20px;
+  height: 20px;
+  background-color: crimson;
+  background-color: #f18557;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.orange {
+  background-color: #f18557;
+}
+
+.red {
+  background-color: crimson;
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        flex-direction: column;
+        height: 900px;
+        width: 600px;
+        overflow: hidden;
+    }
+    .imgBox{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .imgBox::before {
+        font-weight: 900;
+    }
+    .imgBox img{
+        width: 500px;
+        transform: rotate(0deg);
+        top: 48%;
+        left: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .container{
+        flex-direction: column;
+        height: 800px;
+        width: 380px;
+        overflow: hidden;
+    }
+    .imgBox{
+        width: 100%;
+        height: 70%;
+        position: relative;
+    }
+    .imgBox::before {
+        font-size: 6rem;
+    }
+    .imgBox img{
+        width: 400px;
+        transform: rotate(0deg);
+        top: 45%;
+        left: -0.5rem;
+    }
+    .right{
+        padding: 1rem;
+    }
+    .right .right-container .para {
+        padding: 1rem 1rem;
+        letter-spacing: 1px;
+        line-height: 1.4rem;
+        opacity: 0.7;
+    }
+}
