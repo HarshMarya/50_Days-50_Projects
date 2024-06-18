@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>QR Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <p>Enter your text or URL</p>
+      <input type="text" placeholder="Text or URL" required />
+      <div class="qrBox">
+        <!-- <img src="" alt="QR_Image"> -->
+      </div>
+      <button onclick="generateQR()">Generate QR</button>
+    </div>
+
+    <script>
+      const qrImage = document.getElementById("qr-image");
+      const input = document.querySelector("input");
+      const qrBox = document.querySelector(".qrBox");
+
+      const generateQR = () => {
+        let qrImage = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='
+        let inputValue = input.value;
+        if (inputValue == "") {
+            input.classList.add('error')
+            setTimeout(()=>{
+            input.classList.remove('error')
+            },2000)
+        } else {
+            const createImg = document.createElement("img");
+            createImg.setAttribute(
+              "src",
+              `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputValue}`
+            );
+            createImg.style.transition = "all .3s"
+            qrBox.appendChild(createImg);
+            input.value = 'Scan Me...👇🏻'
+            console.log(input);
+        }
+      };
+    </script>
+  </body>
+</html>
